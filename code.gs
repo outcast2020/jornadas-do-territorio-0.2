@@ -4,7 +4,12 @@ var APP_CONFIG = {
   writingsSheetName: 'Escritos',
   rankingSheetName: 'Ranking',
   institutionalSignature: 'Cordel 2.0',
-  institutionalReplyTo: 'contato@cordel2pontozero.com'
+  institutionalReplyTo: 'contato@cordel2pontozero.com',
+  allowedParentOrigins: [
+    'https://outcast2020.github.io',
+    'http://127.0.0.1:4173',
+    'http://localhost:4173'
+  ]
 };
 
 var AUTHOR_REFERENCE_RULES = [
@@ -244,7 +249,9 @@ function normalizePayload_(payload) {
     text_lit_fugaz: safePayload.text_lit_fugaz || '',
     text_tematica_theme: safePayload.text_tematica_theme || '',
     text_tematica: safePayload.text_tematica || '',
-    encountered_npcs: safePayload.encountered_npcs || []
+    encountered_npcs: safePayload.encountered_npcs || [],
+    parentOrigin: safePayload.parentOrigin || '',
+    appUrl: safePayload.appUrl || ''
   };
 }
 
@@ -530,13 +537,19 @@ function createJsonResponse_(payload) {
 
 function createIframeResponse_(payload, requestPayload) {
   var requestId = requestPayload && requestPayload.requestId ? String(requestPayload.requestId) : '';
+  var parentOrigin = getAllowedParentOrigin_(requestPayload && requestPayload.parentOrigin);
   var html = ''
     + '<!DOCTYPE html><html><body><script>'
     + 'var message = ' + JSON.stringify({
       requestId: requestId,
       payload: payload
     }) + ';'
-    + 'if (window.parent) { window.parent.postMessage(message, "*"); }'
+    + 'try {'
+    + '  if (window.top) { window.top.postMessage(message, ' + JSON.stringify(parentOrigin) + '); }'
+    + '  else if (window.parent) { window.parent.postMessage(message, ' + JSON.stringify(parentOrigin) + '); }'
+    + '} catch (error) {'
+    + '  if (window.parent) { window.parent.postMessage(message, ' + JSON.stringify(parentOrigin) + '); }'
+    + '}'
     + '</script></body></html>';
 
   return HtmlService
@@ -549,4 +562,12 @@ function createResponse_(payload, requestPayload) {
     return createIframeResponse_(payload, requestPayload);
   }
   return createJsonResponse_(payload);
+}
+
+function getAllowedParentOrigin_(origin) {
+  var safeOrigin = origin ? String(origin) : '';
+  if (APP_CONFIG.allowedParentOrigins.indexOf(safeOrigin) !== -1) {
+    return safeOrigin;
+  }
+  return APP_CONFIG.allowedParentOrigins[0];
 }

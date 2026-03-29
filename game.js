@@ -1,4 +1,4 @@
-﻿// ESTADO GLOBAL DO JOGO
+// ESTADO GLOBAL DO JOGO
 const gameState = {
   profile: null,
   points: { vivencia: 0, imaginacao: 0, territorio: 0 },
@@ -18,18 +18,18 @@ const gameState = {
   controlsBlocked: false, // Flag to block player movement
   visitedBiomeRewards: {},
 
-  // posiÃ§Ã£o do avatar no mapa (coordenadas de grid)
+  // posi\u00e7\u00e3o do avatar no mapa (coordenadas de grid)
   playerPosition: { x: 10, y: 10 }, // Start position adjusted for larger map
 
   // NPCs (Static positions for now)
   npcs: [
     { x: 2, y: 2, type: 'npc-vivencia', msg: 'Aqui a vida acontece nos detalhes.' },
-    { x: 10, y: 5, type: 'npc-imaginacao', msg: 'O laboratÃ³rio Ã© onde o sonho ganha forma.' },
-    { x: 2, y: 9, type: 'npc-territorio', msg: 'Nossa voz precisa ocupar todos os espaÃ§os.' },
+    { x: 10, y: 5, type: 'npc-imaginacao', msg: 'O laborat\u00f3rio \u00e9 onde o sonho ganha forma.' },
+    { x: 2, y: 9, type: 'npc-territorio', msg: 'Nossa voz precisa ocupar todos os espa\u00e7os.' },
     { x: 17, y: 9, type: 'npc-fugaz', msg: 'Psst... viu algo passar por aqui?' }
   ],
 
-  // textos guardados das missÃµes
+  // textos guardados das miss\u00f5es
   m1_fragments: [],
   m1_memory_target: [],
   m1_memory_unlocked: false,
@@ -116,10 +116,10 @@ function showToast(message, variant = 'default') {
 
 function formatPointReward(reward) {
   const parts = [];
-  if (reward.vivencia) parts.push(`+${reward.vivencia} VivÃªncia`);
-  if (reward.imaginacao) parts.push(`+${reward.imaginacao} ImaginaÃ§Ã£o`);
-  if (reward.territorio) parts.push(`+${reward.territorio} TerritÃ³rio`);
-  return parts.join(' â€¢ ');
+  if (reward.vivencia) parts.push(`+${reward.vivencia} Viv\u00eancia`);
+  if (reward.imaginacao) parts.push(`+${reward.imaginacao} Imagina\u00e7\u00e3o`);
+  if (reward.territorio) parts.push(`+${reward.territorio} Territ\u00f3rio`);
+  return parts.join(' \u2022 ');
 }
 
 function awardPoints(reward, message, variant = 'reward') {
@@ -141,32 +141,32 @@ const missionFlow = [
     screen: 'world1_m1',
     coords: { x: 2, y: 2 },
     shortTitle: 'Dona Cida',
-    title: 'Despertar da VivÃªncia',
-    objective: 'VÃ¡ atÃ© Dona Cida e registre um fragmento da sua vida.',
+    title: 'Despertar da Viv\u00eancia',
+    objective: 'V\u00e1 at\u00e9 Dona Cida e registre um fragmento da sua vida.',
     lockedMessage: 'Comece sua jornada falando com Dona Cida.',
-    dialog: 'Dona Cida: "Ei, meu filho! Senta aqui. A vida Ã© feita de detalhes, nÃ©? Me conta um..."'
+    dialog: 'Dona Cida: "Ei, meu filho! Senta aqui. A vida \u00e9 feita de detalhes, n\u00e9? Me conta um..."'
   },
   {
     id: 'world1_m2',
     tileType: 'lab',
     screen: 'world1_m2',
     coords: { x: 10, y: 5 },
-    shortTitle: 'LaboratÃ³rio',
-    title: 'Mapa SimbÃ³lico do Sentir',
-    objective: 'Siga atÃ© o laboratÃ³rio e transforme memÃ³ria em imagem-poema.',
-    lockedMessage: 'Antes de ir ao laboratÃ³rio, conclua a fala com Dona Cida.',
-    dialog: 'CauÃ£: "Opa! Aqui no laboratÃ³rio a gente mistura sonho com realidade. Bora criar?"'
+    shortTitle: 'Laborat\u00f3rio',
+    title: 'Mapa Simb\u00f3lico do Sentir',
+    objective: 'Siga at\u00e9 o laborat\u00f3rio e transforme mem\u00f3ria em imagem-poema.',
+    lockedMessage: 'Antes de ir ao laborat\u00f3rio, conclua a fala com Dona Cida.',
+    dialog: 'Cau\u00e3: "Opa! Aqui no laborat\u00f3rio a gente mistura sonho com realidade. Bora criar?"'
   },
   {
     id: 'world1_m3',
     tileType: 'm3',
     screen: 'world1_m3',
     coords: { x: 2, y: 9 },
-    shortTitle: 'ZÃ© do BonÃ©',
-    title: 'InscriÃ§Ã£o Territorial da Voz',
-    objective: 'Encontre ZÃ© do BonÃ© e reescreva seu verso com o territÃ³rio.',
-    lockedMessage: 'Sua voz ainda precisa passar pelo laboratÃ³rio antes de ganhar territÃ³rio.',
-    dialog: 'ZÃ© do BonÃ©: "AÃ­, a quebrada tem voz! Mas ela precisa ocupar o muro, a rua, o papel. Manda a letra!"'
+    shortTitle: 'Z\u00e9 do Bon\u00e9',
+    title: 'Inscri\u00e7\u00e3o Territorial da Voz',
+    objective: 'Encontre Z\u00e9 do Bon\u00e9 e reescreva seu verso com o territ\u00f3rio.',
+    lockedMessage: 'Sua voz ainda precisa passar pelo laborat\u00f3rio antes de ganhar territ\u00f3rio.',
+    dialog: 'Z\u00e9 do Bon\u00e9: "A\u00ed, a quebrada tem voz! Mas ela precisa ocupar o muro, a rua, o papel. Manda a letra!"'
   },
   {
     id: 'lit_fugaz',
@@ -174,21 +174,21 @@ const missionFlow = [
     screen: 'lit_fugaz',
     coords: { x: 17, y: 9 },
     shortTitle: 'Encontro Fugaz',
-    title: 'Flash no TerritÃ³rio',
-    objective: 'Procure o vulto Ã  direita do mapa e escreva a cena antes que suma.',
-    lockedMessage: 'Feche primeiro o arco principal de vivÃªncia, imaginaÃ§Ã£o e voz.',
-    dialog: 'Viajante: "Psst... viu aquele vulto? Foi rÃ¡pido, nÃ©? Escreve antes que suma da memÃ³ria."'
+    title: 'Flash no Territ\u00f3rio',
+    objective: 'Procure o vulto \u00e0 direita do mapa e escreva a cena antes que suma.',
+    lockedMessage: 'Feche primeiro o arco principal de viv\u00eancia, imagina\u00e7\u00e3o e voz.',
+    dialog: 'Viajante: "Psst... viu aquele vulto? Foi r\u00e1pido, n\u00e9? Escreve antes que suma da mem\u00f3ria."'
   },
   {
     id: 'tematica',
     tileType: 'tematica',
     screen: 'mission_tematica',
     coords: { x: 17, y: 1 },
-    shortTitle: 'Biblioteca TemÃ¡tica',
-    title: 'Desafio TemÃ¡tico',
-    objective: 'Visite a biblioteca temÃ¡tica e escolha um tema para escrever.',
-    lockedMessage: 'A biblioteca temÃ¡tica abre depois que vocÃª explorar o encontro fugaz.',
-    dialog: 'BibliotecÃ¡ria: "Bem-vindo! Aqui guardamos saberes de todos os cantos. Escolha um tema e se inspire."'
+    shortTitle: 'Biblioteca Tem\u00e1tica',
+    title: 'Desafio Tem\u00e1tico',
+    objective: 'Visite a biblioteca tem\u00e1tica e escolha um tema para escrever.',
+    lockedMessage: 'A biblioteca tem\u00e1tica abre depois que voc\u00ea explorar o encontro fugaz.',
+    dialog: 'Bibliotec\u00e1ria: "Bem-vindo! Aqui guardamos saberes de todos os cantos. Escolha um tema e se inspire."'
   }
 ];
 
@@ -343,7 +343,7 @@ function getNpcByMission(missionId) {
   return getNpcRoster().find((npc) => npc.missionId === missionId) || null;
 }
 
-// ATUALIZA HUD (pontuaÃ§Ã£o)
+// ATUALIZA HUD (pontua\u00e7\u00e3o)
 function updateHUD() {
   const v = document.getElementById('p-vivencia');
   const i = document.getElementById('p-imaginacao');
@@ -366,7 +366,7 @@ function updateHUD() {
 
   if (progressLabel) {
     progressLabel.textContent = totalPoints >= 100
-      ? 'Marco de 100 pontos alcanÃ§ado'
+      ? 'Marco de 100 pontos alcan\u00e7ado'
       : `${totalPoints}/100 pontos`;
   }
 
@@ -380,7 +380,7 @@ function updateHUD() {
   saveGame();
 }
 
-// ========== SISTEMA DE DIÃLOGO ========== //
+// ========== SISTEMA DE DI\u00c3\u0081LOGO ========== //
 function escapeHtml(value) {
   return String(value)
     .replaceAll('&', '&amp;')
@@ -440,7 +440,7 @@ function showDialog(content, onDismiss) {
   box.innerHTML = buildDialogMarkup(content);
   overlay.style.display = 'flex';
 
-  // Remove listener anterior para evitar mÃºltiplos disparos
+  // Remove listener anterior para evitar m\u00faltiplos disparos
   const dismiss = () => {
     overlay.style.display = 'none';
     if (onDismiss) onDismiss();
@@ -494,10 +494,10 @@ function showTransitionToWordChallenge() {
   overlay.innerHTML = `
     <div class="center transition-scene" style="background: var(--bg-color); padding: 40px; border: 4px solid var(--border-color); max-width: 600px; box-shadow: 0 0 50px rgba(255, 222, 0, 0.5);">
       <div id="transition-content">
-        <h1>ðŸŽ‰ CONQUISTA DESBLOQUEADA! ðŸŽ‰</h1>
-        <p>VocÃª alcanÃ§ou 100 pontos!</p>
+        <h1>\ud83c\udf89 CONQUISTA DESBLOQUEADA! \ud83c\udf89</h1>
+        <p>Voc\u00ea alcan\u00e7ou 100 pontos!</p>
         <div id="player-transform" class="player-transform">
-          <div class="player-small">âœï¸</div>
+          <div class="player-small">\u270d\ufe0f</div>
         </div>
         <p id="transform-text"></p>
       </div>
@@ -510,14 +510,14 @@ function showTransitionToWordChallenge() {
   // Animate transformation
   setTimeout(() => {
     const textEl = document.getElementById('transform-text');
-    if (textEl) textEl.textContent = 'O escritor ganha um lÃ¡pis mÃ¡gico...';
+    if (textEl) textEl.textContent = 'O escritor ganha um l\u00e1pis m\u00e1gico...';
   }, 1000);
 
   setTimeout(() => {
     const playerEl = document.querySelector('.player-small');
     if (playerEl) {
       playerEl.classList.add('growing');
-      playerEl.textContent = 'âœï¸âœï¸';
+      playerEl.textContent = '\u270d\ufe0f\u270f\ufe0f';
     }
   }, 2500);
 
@@ -550,8 +550,8 @@ function fadeToWordChallenge() {
 // ========== WORD CHALLENGE GAME ========== //
 
 const challengeWords = [
-  'Poesia', 'VivÃªncias', 'Criatividade', 'prosa',
-  'cordel', 'Sentimentos', 'territÃ³rio', 'voz', 'escrita'
+  'Poesia', 'Viv\u00eancias', 'Criatividade', 'prosa',
+  'cordel', 'Sentimentos', 'territ\u00f3rio', 'voz', 'escrita'
 ];
 
 function renderWordChallenge() {
@@ -572,13 +572,13 @@ function renderWordChallenge() {
   const app = document.getElementById('app');
   app.innerHTML = `
     <section class="form word-challenge">
-      <h2>ðŸ§© Desafio das Palavras Ocultas</h2>
+      <h2>\ud83e\udde9 Desafio das Palavras Ocultas</h2>
       <p>Organize as letras para formar a palavra correta!</p>
-      <p class="hint">Dica: Relacionado Ã  literatura e territÃ³rio</p>
+      <p class="hint">Dica: Relacionado \u00e0 literatura e territ\u00f3rio</p>
       
-      <p class="maze-reward">Recompensa: +15 ImaginaÃ§Ã£o e acesso ao Labirinto da Cidade</p>
+      <p class="maze-reward">Recompensa: +15 Imagina\u00e7\u00e3o e acesso ao Labirinto da Cidade</p>
       <div class="timer" id="timer">
-        <span>â±ï¸ Tempo: </span>
+        <span>\u23f1\ufe0f Tempo: </span>
         <span id="time-remaining">60</span>
         <span> segundos</span>
       </div>
@@ -649,14 +649,14 @@ function checkWordAnswer() {
     // Success!
     gameState.wordChallengeCompleted = true;
     gameState.currentWordChallenge = null;
-    awardPoints({ imaginacao: 15 }, 'Palavra revelada! +15 ImaginaÃ§Ã£o', 'success');
+    awardPoints({ imaginacao: 15 }, 'Palavra revelada! +15 Imagina\u00e7\u00e3o', 'success');
     saveGame();
-    showDialog('ðŸŽŠ ParabÃ©ns! VocÃª acertou a palavra!', () => {
+    showDialog('\ud83c\udf8a Parab\u00e9ns! Voc\u00ea acertou a palavra!', () => {
       transitionToCityMaze();
     });
   } else {
     // Wrong answer
-    showDialog('âŒ Ops! Palavra incorreta. Tente novamente com outra palavra.', () => {
+    showDialog('\u274c Ops! Palavra incorreta. Tente novamente com outra palavra.', () => {
       gameState.currentWordChallenge = null; // Reset to get a new word
       saveGame();
       renderWordChallenge();
@@ -665,7 +665,7 @@ function checkWordAnswer() {
 }
 
 function handleWordTimeout() {
-  showDialog('â° Tempo esgotado! Vamos tentar com outra palavra.', () => {
+  showDialog('\u23f0 Tempo esgotado! Vamos tentar com outra palavra.', () => {
     gameState.currentWordChallenge = null; // Reset to get a new word
     saveGame();
     renderWordChallenge();
@@ -689,36 +689,36 @@ function renderCityMaze() {
   setCurrentScreen('city_maze');
   unblockControls();
   const mazeRewardText = gameState.cityMazeCompleted
-    ? 'Recompensa jÃ¡ coletada: vocÃª jÃ¡ conquistou este territÃ³rio.'
-    : 'Recompensa ao concluir: +10 TerritÃ³rio e +5 ImaginaÃ§Ã£o';
+    ? 'Recompensa j\u00e1 coletada: voc\u00ea j\u00e1 conquistou este territ\u00f3rio.'
+    : 'Recompensa ao concluir: +10 Territ\u00f3rio e +5 Imagina\u00e7\u00e3o';
 
   const app = document.getElementById('app');
   app.innerHTML = `
     <section class="city-maze">
-      <h2>ðŸ™ï¸ Labirinto da Cidade</h2>
-      <p>VocÃª entrou em um novo territÃ³rio urbano!</p>
-      <p class="hint">Explore as ruas da cidade. Novos desafios virÃ£o em breve...</p>
+      <h2>\ud83c\udfd9\ufe0f Labirinto da Cidade</h2>
+      <p>Voc\u00ea entrou em um novo territ\u00f3rio urbano!</p>
+      <p class="hint">Explore as ruas da cidade. Novos desafios vir\u00e3o em breve...</p>
       
       <div class="maze-status">
-        <p>VocÃª entrou em um novo territÃ³rio urbano. Encontre a estrela no canto inferior direito.</p>
+        <p>Voc\u00ea entrou em um novo territ\u00f3rio urbano. Encontre a estrela no canto inferior direito.</p>
         <p class="maze-reward">${mazeRewardText}</p>
-        <p class="hint">Use as setas para atravessar as ruas abertas e evitar os prÃ©dios.</p>
+        <p class="hint">Use as setas para atravessar as ruas abertas e evitar os pr\u00e9dios.</p>
       </div>
       <div class="maze-container">
         <div class="maze-grid" id="city-maze-grid"></div>
       </div>
       
       <div class="controls">
-        <button id="btn-maze-up">â†‘</button>
+        <button id="btn-maze-up">\u2191</button>
         <div style="display:flex; gap:4px;">
-          <button id="btn-maze-left">â†</button>
-          <button id="btn-maze-down">â†“</button>
-          <button id="btn-maze-right">â†’</button>
+          <button id="btn-maze-left">\u2190</button>
+          <button id="btn-maze-down">\u2193</button>
+          <button id="btn-maze-right">\u2192</button>
         </div>
       </div>
       
       <div style="text-align:center; margin-top:20px;">
-        <button id="btn-back-to-map">Voltar ao TerritÃ³rio Original</button>
+        <button id="btn-back-to-map">Voltar ao Territ\u00f3rio Original</button>
       </div>
     </section>
   `;
@@ -736,16 +736,16 @@ function renderCityMaze() {
 
 // Simple city maze (10x10 grid)
 const cityMazeData = [
-  ['ðŸ¢', 'ðŸ¢', 'ðŸ¢', 'ðŸ¢', 'ðŸ¢', 'ðŸ¢', 'ðŸ¢', 'ðŸ¢', 'ðŸ¢', 'ðŸ¢'],
-  ['ðŸ¢', 'ðŸ›£ï¸', 'ðŸ›£ï¸', 'ðŸ›£ï¸', 'ðŸ¢', 'ðŸ›£ï¸', 'ðŸ›£ï¸', 'ðŸ›£ï¸', 'ðŸ›£ï¸', 'ðŸ¢'],
-  ['ðŸ¢', 'ðŸ›£ï¸', 'ðŸ¢', 'ðŸ›£ï¸', 'ðŸ¢', 'ðŸ›£ï¸', 'ðŸ¢', 'ðŸ¢', 'ðŸ›£ï¸', 'ðŸ¢'],
-  ['ðŸ¢', 'ðŸ›£ï¸', 'ðŸ¢', 'ðŸ›£ï¸', 'ðŸ›£ï¸', 'ðŸ›£ï¸', 'ðŸ›£ï¸', 'ðŸ¢', 'ðŸ›£ï¸', 'ðŸ¢'],
-  ['ðŸ¢', 'ðŸ›£ï¸', 'ðŸ¢', 'ðŸ¢', 'ðŸ¢', 'ðŸ¢', 'ðŸ›£ï¸', 'ðŸ¢', 'ðŸ›£ï¸', 'ðŸ¢'],
-  ['ðŸ¢', 'ðŸ›£ï¸', 'ðŸ›£ï¸', 'ðŸ›£ï¸', 'ðŸ›£ï¸', 'ðŸ›£ï¸', 'ðŸ›£ï¸', 'ðŸ¢', 'ðŸ›£ï¸', 'ðŸ¢'],
-  ['ðŸ¢', 'ðŸ¢', 'ðŸ¢', 'ðŸ¢', 'ðŸ¢', 'ðŸ¢', 'ðŸ›£ï¸', 'ðŸ¢', 'ðŸ›£ï¸', 'ðŸ¢'],
-  ['ðŸ¢', 'ðŸ›£ï¸', 'ðŸ›£ï¸', 'ðŸ›£ï¸', 'ðŸ›£ï¸', 'ðŸ›£ï¸', 'ðŸ›£ï¸', 'ðŸ›£ï¸', 'ðŸ›£ï¸', 'ðŸ¢'],
-  ['ðŸ¢', 'ðŸ›£ï¸', 'ðŸ¢', 'ðŸ¢', 'ðŸ¢', 'ðŸ¢', 'ðŸ¢', 'ðŸ¢', 'ðŸŒŸ', 'ðŸ¢'],
-  ['ðŸ¢', 'ðŸ¢', 'ðŸ¢', 'ðŸ¢', 'ðŸ¢', 'ðŸ¢', 'ðŸ¢', 'ðŸ¢', 'ðŸ¢', 'ðŸ¢']
+  ['\ud83c\udfe2', '\ud83c\udfe2', '\ud83c\udfe2', '\ud83c\udfe2', '\ud83c\udfe2', '\ud83c\udfe2', '\ud83c\udfe2', '\ud83c\udfe2', '\ud83c\udfe2', '\ud83c\udfe2'],
+  ['\ud83c\udfe2', '\ud83d\udee3\ufe0f', '\ud83d\udee3\ufe0f', '\ud83d\udee3\ufe0f', '\ud83c\udfe2', '\ud83d\udee3\ufe0f', '\ud83d\udee3\ufe0f', '\ud83d\udee3\ufe0f', '\ud83d\udee3\ufe0f', '\ud83c\udfe2'],
+  ['\ud83c\udfe2', '\ud83d\udee3\ufe0f', '\ud83c\udfe2', '\ud83d\udee3\ufe0f', '\ud83c\udfe2', '\ud83d\udee3\ufe0f', '\ud83c\udfe2', '\ud83c\udfe2', '\ud83d\udee3\ufe0f', '\ud83c\udfe2'],
+  ['\ud83c\udfe2', '\ud83d\udee3\ufe0f', '\ud83c\udfe2', '\ud83d\udee3\ufe0f', '\ud83d\udee3\ufe0f', '\ud83d\udee3\ufe0f', '\ud83d\udee3\ufe0f', '\ud83c\udfe2', '\ud83d\udee3\ufe0f', '\ud83c\udfe2'],
+  ['\ud83c\udfe2', '\ud83d\udee3\ufe0f', '\ud83c\udfe2', '\ud83c\udfe2', '\ud83c\udfe2', '\ud83c\udfe2', '\ud83d\udee3\ufe0f', '\ud83c\udfe2', '\ud83d\udee3\ufe0f', '\ud83c\udfe2'],
+  ['\ud83c\udfe2', '\ud83d\udee3\ufe0f', '\ud83d\udee3\ufe0f', '\ud83d\udee3\ufe0f', '\ud83d\udee3\ufe0f', '\ud83d\udee3\ufe0f', '\ud83d\udee3\ufe0f', '\ud83c\udfe2', '\ud83d\udee3\ufe0f', '\ud83c\udfe2'],
+  ['\ud83c\udfe2', '\ud83c\udfe2', '\ud83c\udfe2', '\ud83c\udfe2', '\ud83c\udfe2', '\ud83c\udfe2', '\ud83d\udee3\ufe0f', '\ud83c\udfe2', '\ud83d\udee3\ufe0f', '\ud83c\udfe2'],
+  ['\ud83c\udfe2', '\ud83d\udee3\ufe0f', '\ud83d\udee3\ufe0f', '\ud83d\udee3\ufe0f', '\ud83d\udee3\ufe0f', '\ud83d\udee3\ufe0f', '\ud83d\udee3\ufe0f', '\ud83d\udee3\ufe0f', '\ud83d\udee3\ufe0f', '\ud83c\udfe2'],
+  ['\ud83c\udfe2', '\ud83d\udee3\ufe0f', '\ud83c\udfe2', '\ud83c\udfe2', '\ud83c\udfe2', '\ud83c\udfe2', '\ud83c\udfe2', '\ud83c\udfe2', '\ud83c\udf1f', '\ud83c\udfe2'],
+  ['\ud83c\udfe2', '\ud83c\udfe2', '\ud83c\udfe2', '\ud83c\udfe2', '\ud83c\udfe2', '\ud83c\udfe2', '\ud83c\udfe2', '\ud83c\udfe2', '\ud83c\udfe2', '\ud83c\udfe2']
 ];
 
 let mazePlayerPos = { x: 1, y: 1 }; // Start position in maze
@@ -973,19 +973,19 @@ function getObjectiveSummary() {
 
   if (currentMission) {
     return {
-      kicker: 'MissÃ£o atual',
+      kicker: 'Miss\u00e3o atual',
       title: currentMission.title,
       text: currentMission.objective,
-      progress: `${getCompletedMissionCount()}/${missionFlow.length} missÃµes concluÃ­das`
+      progress: `${getCompletedMissionCount()}/${missionFlow.length} miss\u00f5es conclu\u00eddas`
     };
   }
 
   if (!gameState.milestone100) {
     return {
-      kicker: 'PrÃ³ximo marco',
+      kicker: 'Pr\u00f3ximo marco',
       title: 'Chegue a 100 pontos',
-      text: 'Explore o territÃ³rio e finalize suas criaÃ§Ãµes para desbloquear o desafio extra.',
-      progress: `${getCompletedMissionCount()}/${missionFlow.length} missÃµes concluÃ­das`
+      text: 'Explore o territ\u00f3rio e finalize suas cria\u00e7\u00f5es para desbloquear o desafio extra.',
+      progress: `${getCompletedMissionCount()}/${missionFlow.length} miss\u00f5es conclu\u00eddas`
     };
   }
 
@@ -993,25 +993,25 @@ function getObjectiveSummary() {
     return {
       kicker: 'Desafio extra',
       title: 'Palavras Ocultas',
-      text: 'O marco de 100 pontos jÃ¡ foi alcanÃ§ado. Resolva o desafio para abrir o labirinto.',
-      progress: `${getCompletedMissionCount()}/${missionFlow.length} missÃµes concluÃ­das`
+      text: 'O marco de 100 pontos j\u00e1 foi alcan\u00e7ado. Resolva o desafio para abrir o labirinto.',
+      progress: `${getCompletedMissionCount()}/${missionFlow.length} miss\u00f5es conclu\u00eddas`
     };
   }
 
   if (!gameState.cityMazeCompleted) {
     return {
-      kicker: 'CapÃ­tulo bÃ´nus',
+      kicker: 'Cap\u00edtulo b\u00f4nus',
       title: 'Labirinto da Cidade',
-      text: 'VocÃª liberou o capÃ­tulo extra. Volte ao labirinto e alcance a estrela para conquistar o territÃ³rio urbano.',
-      progress: `${getCompletedMissionCount()}/${missionFlow.length} missÃµes concluÃ­das`
+      text: 'Voc\u00ea liberou o cap\u00edtulo extra. Volte ao labirinto e alcance a estrela para conquistar o territ\u00f3rio urbano.',
+      progress: `${getCompletedMissionCount()}/${missionFlow.length} miss\u00f5es conclu\u00eddas`
     };
   }
 
   return {
-    kicker: 'Jornada concluÃ­da',
+    kicker: 'Jornada conclu\u00edda',
     title: 'Mapa principal completo',
-    text: 'VocÃª jÃ¡ concluiu as missÃµes principais. Releia seus cordÃ©is, baixe sua jornada ou sincronize na nuvem.',
-    progress: `${getCompletedMissionCount()}/${missionFlow.length} missÃµes concluÃ­das`
+    text: 'Voc\u00ea j\u00e1 concluiu as miss\u00f5es principais. Releia seus cord\u00e9is, baixe sua jornada ou sincronize na nuvem.',
+    progress: `${getCompletedMissionCount()}/${missionFlow.length} miss\u00f5es conclu\u00eddas`
   };
 }
 
@@ -1036,7 +1036,7 @@ function grantBiomeReward(tileType) {
   gameState.visitedBiomeRewards[rewardKey] = true;
   awardPoints(
     { vivencia: reward.vivencia || 0, imaginacao: reward.imaginacao || 0, territorio: reward.territory || 0 },
-    `ExploraÃ§Ã£o do territÃ³rio! ${formatPointReward({ vivencia: reward.vivencia || 0, imaginacao: reward.imaginacao || 0, territorio: reward.territory || 0 })}`,
+    `Explora\u00e7\u00e3o do territ\u00f3rio! ${formatPointReward({ vivencia: reward.vivencia || 0, imaginacao: reward.imaginacao || 0, territorio: reward.territory || 0 })}`,
     'alert'
   );
 }
@@ -1189,15 +1189,15 @@ function drawCityMaze() {
       cell.classList.add('maze-cell');
 
       if (x === mazePlayerPos.x && y === mazePlayerPos.y) {
-        cell.textContent = 'ðŸš¶';
+        cell.textContent = '\ud83d\udeb6';
         cell.style.backgroundColor = '#ffeb3b';
       } else {
         cell.textContent = cityMazeData[y][x];
-        if (cityMazeData[y][x] === 'ðŸ›£ï¸') {
+        if (cityMazeData[y][x] === '\ud83d\udee3\ufe0f') {
           cell.style.backgroundColor = '#e0e0e0';
-        } else if (cityMazeData[y][x] === 'ðŸ¢') {
+        } else if (cityMazeData[y][x] === '\ud83c\udfe2') {
           cell.style.backgroundColor = '#90a4ae';
-        } else if (cityMazeData[y][x] === 'ðŸŒŸ') {
+        } else if (cityMazeData[y][x] === '\ud83c\udf1f') {
           cell.style.backgroundColor = '#ffd54f';
         }
       }
@@ -1217,7 +1217,7 @@ function moveMaze(dx, dy) {
   if (newX < 0 || newX >= 10 || newY < 0 || newY >= 10) return;
 
   // Check if it's a wall (building)
-  if (cityMazeData[newY][newX] === 'ðŸ¢') return;
+  if (cityMazeData[newY][newX] === '\ud83c\udfe2') return;
 
   // Move player
   mazePlayerPos = { x: newX, y: newY };
@@ -1226,12 +1226,12 @@ function moveMaze(dx, dy) {
 
   if (newX === 8 && newY === 8 && !gameState.cityMazeCompleted) {
     gameState.cityMazeCompleted = true;
-    awardPoints({ imaginacao: 5, territorio: 10 }, 'TerritÃ³rio conquistado! +10 TerritÃ³rio â€¢ +5 ImaginaÃ§Ã£o', 'success');
+    awardPoints({ imaginacao: 5, territorio: 10 }, 'Territ\u00f3rio conquistado! +10 Territ\u00f3rio \u2022 +5 Imagina\u00e7\u00e3o', 'success');
   }
 
   // Check if reached the goal
-  if (cityMazeData[newY][newX] === 'ðŸŒŸ') {
-    showDialog('ðŸŒŸ VocÃª encontrou um ponto especial da cidade! Mais aventuras virÃ£o...', () => {
+  if (cityMazeData[newY][newX] === '\ud83c\udf1f') {
+    showDialog('\ud83c\udf1f Voc\u00ea encontrou um ponto especial da cidade! Mais aventuras vir\u00e3o...', () => {
       goToMap();
     });
   }
@@ -1250,10 +1250,10 @@ function renderScreen(id) {
   if (id === 'splash') {
     app.innerHTML = `
       <section class="center">
-        <h1>Jornadas do TerritÃ³rio</h1>
-        <p>Um jogo de escrita viva, memÃ³ria e territÃ³rio.</p>
-        <p>Aqui, quem escreve Ã© vocÃª. A IA entra sÃ³ depois â€” sua histÃ³ria Ã© essencial.</p>
-        <button id="btn-start">ComeÃ§ar jornada</button>
+        <h1>Jornadas do Territ\u00f3rio</h1>
+        <p>Um jogo de escrita viva, mem\u00f3ria e territ\u00f3rio.</p>
+        <p>Aqui, quem escreve \u00e9 voc\u00ea. A IA entra s\u00f3 depois \u2014 sua hist\u00f3ria \u00e9 essencial.</p>
+        <button id="btn-start">Come\u00e7ar jornada</button>
       </section>
     `;
     document.getElementById('btn-start').onclick = () => renderScreen('create_profile');
@@ -1264,11 +1264,11 @@ function renderScreen(id) {
   if (id === 'create_profile') {
     app.innerHTML = `
       <section class="form">
-        <h2>Quem Ã© vocÃª na quebrada do poema?</h2>
-        <label>Seu nome ou apelido poÃ©tico
+        <h2>Quem \u00e9 voc\u00ea na quebrada do poema?</h2>
+        <label>Seu nome ou apelido po\u00e9tico
           <input id="nome-poetico" placeholder="Ex.: Nina da Laje" value="${gameState.profile ? gameState.profile.nome : ''}" />
         </label>
-        <label>De onde vocÃª fala?
+        <label>De onde voc\u00ea fala?
           <input id="territorio" placeholder="Bairro, comunidade ou cidade" value="${gameState.profile ? gameState.profile.territorio : ''}" />
         </label>
         <label>Seu e-mail para receber a jornada
@@ -1282,11 +1282,11 @@ function renderScreen(id) {
       const terr = document.getElementById('territorio').value.trim();
       const email = document.getElementById('email').value.trim();
       if (!nome) {
-        showDialog('Precisa pelo menos do nome ou apelido poÃ©tico.');
+        showDialog('Precisa pelo menos do nome ou apelido po\u00e9tico.');
         return;
       }
       if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        showDialog('Digite um e-mail vÃƒÂ¡lido para receber seus textos.');
+        showDialog('Digite um e-mail v\u00e1lido para receber seus textos.');
         return;
       }
       gameState.profile = { nome, territorio: terr, email };
@@ -1302,17 +1302,17 @@ function renderScreen(id) {
     return;
   }
 
-  // MISSÃƒO 1
+  // MISS\u00c3O 1
   if (id === 'world1_m1') {
     const memoryReady = gameState.m1_memory_unlocked;
     app.innerHTML = `
       <section class="form">
-        <h2>MissÃ£o 1: Despertar da VivÃªncia</h2>
-        <p>Antes de escrever, Dona Cida abre a memÃ³ria em pequenos fragmentos do cotidiano.</p>
+        <h2>Miss\u00e3o 1: Despertar da Viv\u00eancia</h2>
+        <p>Antes de escrever, Dona Cida abre a mem\u00f3ria em pequenos fragmentos do cotidiano.</p>
         <section class="micro-action-panel">
-          <p class="micro-action-kicker">MicroaÃ§Ã£o</p>
-          <h3 class="micro-action-title">Colete dois fragmentos de memÃ³ria</h3>
-          <p class="micro-action-text">Toque em dois sinais do territÃ³rio para aquecer sua lembranÃ§a.</p>
+          <p class="micro-action-kicker">Microa\u00e7\u00e3o</p>
+          <h3 class="micro-action-title">Colete dois fragmentos de mem\u00f3ria</h3>
+          <p class="micro-action-text">Toque em dois sinais do territ\u00f3rio para aquecer sua lembran\u00e7a.</p>
           ${renderMemoryScene()}
           <div class="micro-option-grid">
             ${renderOptionButtons(MEMORY_FRAGMENTS, gameState.m1_fragments, 'memory-fragment')}
@@ -1323,8 +1323,8 @@ function renderScreen(id) {
             <button type="button" id="btn-m1-reset" class="micro-secondary">Trocar fragmentos</button>
           </div>
         </section>
-        <textarea id="m1-text" ${memoryReady ? '' : 'disabled'} placeholder="Ex.: O som do Ã´nibus passando na subida da minha rua de madrugada.">${gameState.m1_text}</textarea>
-        <button id="btn-m1">Concluir missÃ£o</button>
+        <textarea id="m1-text" ${memoryReady ? '' : 'disabled'} placeholder="Ex.: O som do \u00f4nibus passando na subida da minha rua de madrugada.">${gameState.m1_text}</textarea>
+        <button id="btn-m1">Concluir miss\u00e3o</button>
         <button id="btn-m1-back">Voltar ao mapa</button>
       </section>
     `;
@@ -1337,7 +1337,7 @@ function renderScreen(id) {
         } else if (gameState.m1_fragments.length < 2) {
           gameState.m1_fragments = [...gameState.m1_fragments, fragment];
         } else {
-          showToast('Dona Cida segura sÃ³ dois fragmentos por vez. Troque um para continuar.', 'alert');
+          showToast('Dona Cida segura s\u00f3 dois fragmentos por vez. Troque um para continuar.', 'alert');
           return;
         }
         saveGame();
@@ -1373,28 +1373,28 @@ function renderScreen(id) {
         return;
       }
       if (!txt) {
-        showDialog('Tente escrever pelo menos uma frase sobre a sua vivÃªncia.');
+        showDialog('Tente escrever pelo menos uma frase sobre a sua viv\u00eancia.');
         return;
       }
       gameState.missions.world1_m1 = true;
       gameState.m1_text = txt;
-      awardPoints({ vivencia: 20 }, 'VivÃªncia registrada! +20 VivÃªncia');
-      showDialog('VivÃªncia registrada! VocÃª ganhou +20 Pontos de VivÃªncia.', () => safeNavigateToMap());
+      awardPoints({ vivencia: 20 }, 'Viv\u00eancia registrada! +20 Viv\u00eancia');
+      showDialog('Viv\u00eancia registrada! Voc\u00ea ganhou +20 Pontos de Viv\u00eancia.', () => safeNavigateToMap());
     };
     document.getElementById('btn-m1-back').onclick = () => safeNavigateToMap();
     return;
   }
 
-  // MISSÃƒO 2 â€“ LABORATÃ“RIO
+  // MISS\u00c3O 2 \u2013 LABORAT\u00d3RIO
   if (id === 'world1_m2') {
     const labReady = gameState.m2_lab_unlocked;
     app.innerHTML = `
       <section class="form">
-        <h2>MissÃ£o 2: Mapa SimbÃ³lico do Sentir</h2>
-        <p>Antes de escrever, CauÃ£ pede que vocÃª monte o clima do laboratÃ³rio com trÃªs combinaÃ§Ãµes visuais.</p>
+        <h2>Miss\u00e3o 2: Mapa Simb\u00f3lico do Sentir</h2>
+        <p>Antes de escrever, Cau\u00e3 pede que voc\u00ea monte o clima do laborat\u00f3rio com tr\u00eas combina\u00e7\u00f5es visuais.</p>
         <section class="micro-action-panel">
-          <p class="micro-action-kicker">MicroaÃ§Ã£o</p>
-          <h3 class="micro-action-title">Ative o laboratÃ³rio visual</h3>
+          <p class="micro-action-kicker">Microa\u00e7\u00e3o</p>
+          <h3 class="micro-action-title">Ative o laborat\u00f3rio visual</h3>
           ${renderLabScene()}
           <div class="micro-station">
             <p class="micro-station-title">Pulso</p>
@@ -1422,13 +1422,13 @@ function renderScreen(id) {
         </section>
         <p>Agora vamos criar uma imagem-poema: Substantivo + Adjetivos + Conector + Ambiente.</p>
         <label>Substantivo
-          <input id="m2-noun" placeholder="Ex.: vento, rua, silÃªncio, laje..." />
+          <input id="m2-noun" placeholder="Ex.: vento, rua, sil\u00eancio, laje..." />
         </label>
         <label>Adjetivos (1 a 3)
-          <input id="m2-adj" placeholder="Ex.: pesado, elÃ©trico, silencioso..." />
+          <input id="m2-adj" placeholder="Ex.: pesado, el\u00e9trico, silencioso..." />
         </label>
-        <label>Ambiente do seu territÃ³rio
-          <input id="m2-env" placeholder="Ex.: laje, ponto de Ã´nibus, feira..." />
+        <label>Ambiente do seu territ\u00f3rio
+          <input id="m2-env" placeholder="Ex.: laje, ponto de \u00f4nibus, feira..." />
         </label>
         <label>Conector
           <input id="m2-con" placeholder="Ex.: em, sobre, perto de..." />
@@ -1501,9 +1501,9 @@ function renderScreen(id) {
         <hr>
         <p><strong>Imagem-poema:</strong> ${imagePoem}</p>
         <label>Escreva um verso a partir dessa imagem
-          <textarea id="m2-verse" placeholder="Ex.: O vento elÃ©trico varre a laje em silÃªncio.">${gameState.m2_user_verse}</textarea>
+          <textarea id="m2-verse" placeholder="Ex.: O vento el\u00e9trico varre a laje em sil\u00eancio.">${gameState.m2_user_verse}</textarea>
         </label>
-        <button id="btn-m2-finish">Concluir missÃ£o</button>
+        <button id="btn-m2-finish">Concluir miss\u00e3o</button>
       `;
 
       document.getElementById('btn-m2-finish').onclick = () => {
@@ -1514,8 +1514,8 @@ function renderScreen(id) {
         }
         gameState.m2_user_verse = verse;
         gameState.missions.world1_m2 = true;
-        awardPoints({ imaginacao: 15 }, 'Imagem-poema criada! +15 ImaginaÃ§Ã£o');
-        showDialog('MissÃ£o 2 concluÃ­da! VocÃª ganhou +15 Pontos de ImaginaÃ§Ã£o.', () => safeNavigateToMap());
+        awardPoints({ imaginacao: 15 }, 'Imagem-poema criada! +15 Imagina\u00e7\u00e3o');
+        showDialog('Miss\u00e3o 2 conclu\u00edda! Voc\u00ea ganhou +15 Pontos de Imagina\u00e7\u00e3o.', () => safeNavigateToMap());
       };
     };
 
@@ -1523,16 +1523,16 @@ function renderScreen(id) {
     return;
   }
 
-  // MISSÃƒO 3 â€“ INSCRIÃ‡ÃƒO TERRITORIAL
+  // MISS\u00c3O 3 \u2013 INSCRI\u00c7\u00c3O TERRITORIAL
   if (id === 'world1_m3') {
-    const appVerse = gameState.m2_user_verse || '(VocÃª ainda nÃ£o concluiu a MissÃ£o 2)';
+    const appVerse = gameState.m2_user_verse || '(Voc\u00ea ainda n\u00e3o concluiu a Miss\u00e3o 2)';
     const voiceReady = gameState.m3_voice_unlocked;
     app.innerHTML = `
       <section class="form">
-        <h2>MissÃ£o 3: InscriÃ§Ã£o Territorial da Voz</h2>
-        <p>Antes de escrever no muro, ZÃ© do BonÃ© pede que vocÃª escolha como a voz entra em cena.</p>
+        <h2>Miss\u00e3o 3: Inscri\u00e7\u00e3o Territorial da Voz</h2>
+        <p>Antes de escrever no muro, Z\u00e9 do Bon\u00e9 pede que voc\u00ea escolha como a voz entra em cena.</p>
         <section class="micro-action-panel">
-          <p class="micro-action-kicker">MicroaÃ§Ã£o</p>
+          <p class="micro-action-kicker">Microa\u00e7\u00e3o</p>
           <h3 class="micro-action-title">Monte o corpo da voz</h3>
           ${renderVoiceScene()}
           <div class="micro-station">
@@ -1561,8 +1561,8 @@ function renderScreen(id) {
         </section>
         <p>Reescreva seu verso incluindo: uma cor, um som, um gesto e algo da sua rua/bairro.</p>
         <p><strong>Verso anterior:</strong> ${appVerse}</p>
-        <textarea id="m3-text" ${voiceReady ? '' : 'disabled'} placeholder="Ex.: O vento elÃ©trico varre a laje azul enquanto alguÃ©m bate palma no portÃ£o da minha rua.">${gameState.m3_new_verse}</textarea>
-        <button id="btn-m3">Concluir missÃ£o</button>
+        <textarea id="m3-text" ${voiceReady ? '' : 'disabled'} placeholder="Ex.: O vento el\u00e9trico varre a laje azul enquanto algu\u00e9m bate palma no port\u00e3o da minha rua.">${gameState.m3_new_verse}</textarea>
+        <button id="btn-m3">Concluir miss\u00e3o</button>
         <button id="btn-m3-back">Voltar ao mapa</button>
       </section>
     `;
@@ -1608,33 +1608,33 @@ function renderScreen(id) {
     };
     document.getElementById('btn-m3').onclick = () => {
       if (!voiceReady) {
-        showDialog('Resolva o microjogo do mural antes de inscrever sua voz no territÃ³rio.');
+        showDialog('Resolva o microjogo do mural antes de inscrever sua voz no territ\u00f3rio.');
         return;
       }
       const txt = document.getElementById('m3-text').value.trim();
       if (!txt) {
-        showDialog('Escreva seu novo verso com o territÃ³rio.');
+        showDialog('Escreva seu novo verso com o territ\u00f3rio.');
         return;
       }
       gameState.m3_new_verse = txt;
       gameState.missions.world1_m3 = true;
-      awardPoints({ territorio: 30 }, 'Voz inscrita no territÃ³rio! +30 TerritÃ³rio');
-      showDialog('MissÃ£o 3 concluÃ­da! VocÃª ganhou +30 Pontos de TerritÃ³rio.', () => safeNavigateToMap());
+      awardPoints({ territorio: 30 }, 'Voz inscrita no territ\u00f3rio! +30 Territ\u00f3rio');
+      showDialog('Miss\u00e3o 3 conclu\u00edda! Voc\u00ea ganhou +30 Pontos de Territ\u00f3rio.', () => safeNavigateToMap());
     };
     document.getElementById('btn-m3-back').onclick = () => safeNavigateToMap();
     return;
   }
 
-  // ========= MISSÃƒO LITERÃRIA â€“ ENCONTRO FUGAZ =========
+  // ========= MISS\u00c3O LITER\u00c3\u0081RIA \u2013 ENCONTRO FUGAZ =========
   if (id === 'lit_fugaz') {
     app.innerHTML = `
       <section class="form">
-        <h2>MissÃ£o LiterÃ¡ria: Encontro Fugaz no TerritÃ³rio</h2>
+        <h2>Miss\u00e3o Liter\u00e1ria: Encontro Fugaz no Territ\u00f3rio</h2>
         <p>
-          Em alguns lugares, um encontro dura sÃ³ alguns segundos e muda tudo por dentro. 
+          Em alguns lugares, um encontro dura s\u00f3 alguns segundos e muda tudo por dentro. 
         </p>
         <textarea id="lit-text" placeholder="Descreva a cena em poucas linhas, como se fosse um flash de filme.">${gameState.lit_fugaz_text}</textarea>
-        <button id="btn-lit">Concluir missÃ£o literÃ¡ria</button>
+        <button id="btn-lit">Concluir miss\u00e3o liter\u00e1ria</button>
         <button id="btn-lit-back">Voltar ao mapa</button>
       </section>
     `;
@@ -1647,27 +1647,27 @@ function renderScreen(id) {
       }
       gameState.lit_fugaz_text = txt;
       gameState.missions.lit_fugaz = true;
-      awardPoints({ imaginacao: 20, territorio: 10 }, 'Cena fugaz registrada! +20 ImaginaÃ§Ã£o â€¢ +10 TerritÃ³rio');
-      showDialog('MissÃ£o literÃ¡ria concluÃ­da! VocÃª ganhou +20 ImaginaÃ§Ã£o e +10 TerritÃ³rio.', () => safeNavigateToMap());
+      awardPoints({ imaginacao: 20, territorio: 10 }, 'Cena fugaz registrada! +20 Imagina\u00e7\u00e3o \u2022 +10 Territ\u00f3rio');
+      showDialog('Miss\u00e3o liter\u00e1ria conclu\u00edda! Voc\u00ea ganhou +20 Imagina\u00e7\u00e3o e +10 Territ\u00f3rio.', () => safeNavigateToMap());
     };
 
     document.getElementById('btn-lit-back').onclick = () => safeNavigateToMap();
     return;
   }
 
-  // ========= MISSÃƒO TEMÃTICA â€“ BIBLIOTECAS =========
+  // ========= MISS\u00c3O TEM\u00c3\u0081TICA \u2013 BIBLIOTECAS =========
   if (id === 'mission_tematica') {
     const themes = [
       "Cultura Afro-brasileira",
       "Contos de Fadas",
       "Cinema",
-      "CiÃªncias",
+      "Ci\u00eancias",
       "Arquitetura e Urbanismo",
       "Poesia",
-      "MÃºsica",
+      "M\u00fasica",
       "Meio Ambiente e Sustentabilidade",
       "Literatura Policial",
-      "Literatura FantÃ¡stica",
+      "Literatura Fant\u00e1stica",
       "Literatura Feminista",
       "Cultura Popular",
       "Direitos Humanos"
@@ -1678,9 +1678,9 @@ function renderScreen(id) {
 
     app.innerHTML = `
       <section class="form">
-        <h2>Desafio das Bibliotecas TemÃ¡ticas</h2>
+        <h2>Desafio das Bibliotecas Tem\u00e1ticas</h2>
         <p>
-          As bibliotecas de SÃ£o Paulo guardam tesouros temÃ¡ticos. 
+          As bibliotecas de S\u00e3o Paulo guardam tesouros tem\u00e1ticos. 
           Escolha um tema e escreva um pequeno texto ou poema inspirado nele.
         </p>
         <label>Escolha o tema:
@@ -1688,7 +1688,7 @@ function renderScreen(id) {
             ${optionsHtml}
           </select>
         </label>
-        <textarea id="tematica-text" placeholder="Escreva aqui sua inspiraÃ§Ã£o sobre o tema escolhido...">${gameState.tematica_text}</textarea>
+        <textarea id="tematica-text" placeholder="Escreva aqui sua inspira\u00e7\u00e3o sobre o tema escolhido...">${gameState.tematica_text}</textarea>
         <button id="btn-tematica">Concluir Desafio</button>
         <button id="btn-tematica-back">Voltar ao mapa</button>
       </section>
@@ -1704,8 +1704,8 @@ function renderScreen(id) {
       gameState.tematica_chosen = theme;
       gameState.tematica_text = txt;
       gameState.missions.tematica = true;
-      awardPoints({ imaginacao: 25, vivencia: 10 }, `Tema ${theme} concluÃ­do! +25 ImaginaÃ§Ã£o â€¢ +10 VivÃªncia`);
-      showDialog(`Desafio de ${theme} concluÃ­do! +25 ImaginaÃ§Ã£o, +10 VivÃªncia.`, () => safeNavigateToMap());
+      awardPoints({ imaginacao: 25, vivencia: 10 }, `Tema ${theme} conclu\u00eddo! +25 Imagina\u00e7\u00e3o \u2022 +10 Viv\u00eancia`);
+      showDialog(`Desafio de ${theme} conclu\u00eddo! +25 Imagina\u00e7\u00e3o, +10 Viv\u00eancia.`, () => safeNavigateToMap());
     };
 
     document.getElementById('btn-tematica-back').onclick = () => safeNavigateToMap();
@@ -1720,7 +1720,7 @@ function renderMapScreen() {
   const objectiveSummary = getObjectiveSummary();
   app.innerHTML = `
     <section class="map-wrapper">
-      <h2>TerritÃ³rio</h2>
+      <h2>Territ\u00f3rio</h2>
       <div class="quest-panel">
         <p class="quest-kicker">${objectiveSummary.kicker}</p>
         <h3 class="quest-title">${objectiveSummary.title}</h3>
@@ -1737,11 +1737,11 @@ function renderMapScreen() {
       </div>
       
       <div class="controls">
-        <button id="btn-up">â†‘</button>
+        <button id="btn-up">\u2191</button>
         <div style="display:flex; gap:4px;">
-            <button id="btn-left">â†</button>
-            <button id="btn-down">â†“</button>
-            <button id="btn-right">â†’</button>
+            <button id="btn-left">\u2190</button>
+            <button id="btn-down">\u2193</button>
+            <button id="btn-right">\u2192</button>
         </div>
       </div>
       
@@ -1752,12 +1752,12 @@ function renderMapScreen() {
         <span class="legend-tile igreja">Igreja</span>
         <span class="legend-tile ponto">Ponto</span>
         <span class="legend-tile lit">Encontro</span>
-        <span class="legend-tile tematica">Biblioteca TemÃ¡tica</span>
+        <span class="legend-tile tematica">Biblioteca Tem\u00e1tica</span>
       </div>
       
       <div style="text-align:center; margin-top:20px; display:flex; flex-direction:column; gap:8px;">
-        <button id="btn-library" style="background:#81d4fa; color:#000;">ðŸ“– Ler CordÃ©is Encontrados</button>
-        <button id="btn-send-email" style="background:#ffeb3b; color:#000;">ðŸ’¾ Baixar Jornada (.doc)</button>
+        <button id="btn-library" style="background:#81d4fa; color:#000;">\ud83d\udcd6 Ler Cord\u00e9is Encontrados</button>
+        <button id="btn-send-email" style="background:#ffeb3b; color:#000;">\ud83d\udcbe Baixar Jornada (.doc)</button>
       </div>
     </section>
   `;
@@ -1825,7 +1825,7 @@ function showLibrary() {
   app.innerHTML = `
     <section class="form">
       <h2>Biblioteca de Cordel</h2>
-      <p>Versos recolhidos na memÃ³ria do territÃ³rio.</p>
+      <p>Versos recolhidos na mem\u00f3ria do territ\u00f3rio.</p>
       <div style="max-height:300px; overflow-y:auto; text-align:left;">
         ${poemsHtml}
       </div>
@@ -1941,7 +1941,7 @@ function step(dx, dy) {
   updatePlayerPosition();
   updateInteractionHud();
 
-  // Pequeno delay para permitir a animaÃ§Ã£o antes do evento (opcional)
+  // Pequeno delay para permitir a anima\u00e7\u00e3o antes do evento (opcional)
   setTimeout(() => processTileEvent(tileType), 300);
 }
 
@@ -1955,8 +1955,8 @@ function processTileEvent(tileType) {
   grantBiomeReward(tileType);
 }
 
-// FunÃ§Ã£o de Email
-// Coleta todos os dados do jogo para exportaÃ§Ã£o
+// Fun\u00e7\u00e3o de Email
+// Coleta todos os dados do jogo para exporta\u00e7\u00e3o
 const AUTHOR_REFERENCE_RULES = [
   { name: 'Patativa do Assare', patterns: ['patativa', 'patativa do assare'] },
   { name: 'Conceicao Evaristo', patterns: ['conceicao evaristo', 'escrevivencia'] },
@@ -2005,7 +2005,7 @@ function countRhymeGroups(text) {
 }
 
 function countSubjectLikeWords(words) {
-  const subjectHints = new Set(['eu', 'tu', 'ela', 'ele', 'nos', 'nÃ³s', 'eles', 'elas', 'voce', 'vocÃª', 'gente', 'povo', 'rua', 'bairro', 'laje', 'feira', 'cidade', 'quebrada', 'territorio', 'territÃ³rio', 'muro', 'corpo', 'voz']);
+  const subjectHints = new Set(['eu', 'tu', 'ela', 'ele', 'nos', 'n\u00f3s', 'eles', 'elas', 'voce', 'voc\u00ea', 'gente', 'povo', 'rua', 'bairro', 'laje', 'feira', 'cidade', 'quebrada', 'territorio', 'territ\u00f3rio', 'muro', 'corpo', 'voz']);
   return words.filter((word) => subjectHints.has(word)).length;
 }
 
@@ -2165,7 +2165,7 @@ function renderMemoryScene() {
   const intensityClass = gameState.m1_memory_unlocked ? 'scene-awake scene-unlocked' : selected.length >= 1 ? 'scene-warming' : 'scene-idle';
   const prompt = gameState.m1_memory_unlocked
     ? 'Caderno destravado'
-    : `Pedido de Dona Cida: ${gameState.m1_memory_target.join(' • ')}`;
+    : `Pedido de Dona Cida: ${gameState.m1_memory_target.join(' \u2022 ')}`;
 
   return `
     <div class="micro-scene memory-scene ${intensityClass}">
@@ -2196,7 +2196,7 @@ function renderLabScene() {
         <span class="lab-center">${escapeHtml(String(activeCount))}/3</span>
       </div>
       <div class="lab-readouts">
-        <p><strong>Alvo:</strong> ${escapeHtml(`${gameState.m2_lab_target.pulse} • ${gameState.m2_lab_target.texture} • ${gameState.m2_lab_target.light}`)}</p>
+        <p><strong>Alvo:</strong> ${escapeHtml(`${gameState.m2_lab_target.pulse} \u2022 ${gameState.m2_lab_target.texture} \u2022 ${gameState.m2_lab_target.light}`)}</p>
         <p><strong>Pulso:</strong> ${escapeHtml(choices.pulse || 'pendente')}</p>
         <p><strong>Textura:</strong> ${escapeHtml(choices.texture || 'pendente')}</p>
         <p><strong>Luz:</strong> ${escapeHtml(choices.light || 'pendente')}</p>
@@ -2225,7 +2225,7 @@ function renderVoiceScene() {
         ${bars}
       </div>
       ${gameState.m3_voice_unlocked ? '<div class="scene-success-badge">Mural aceso</div>' : ''}
-      <p class="micro-scene-caption">${escapeHtml(`Pedido da rua: ${gameState.m3_voice_target.rhythm} • ${gameState.m3_voice_target.tone} • ${gameState.m3_voice_target.gesture}`)}</p>
+      <p class="micro-scene-caption">${escapeHtml(`Pedido da rua: ${gameState.m3_voice_target.rhythm} \u2022 ${gameState.m3_voice_target.tone} \u2022 ${gameState.m3_voice_target.gesture}`)}</p>
     </div>
   `;
 }
@@ -2263,12 +2263,12 @@ function getGameData() {
   };
 }
 
-// Gera e baixa um arquivo DOC (compatÃ­vel com Word)
+// Gera e baixa um arquivo DOC (compat\u00edvel com Word)
 function saveToDoc(data) {
   const header = "<html xmlns:o='urn:schemas-microsoft-com:office:office' " +
     "xmlns:w='urn:schemas-microsoft-com:office:word' " +
     "xmlns='http://www.w3.org/TR/REC-html40'> " +
-    "<head><meta charset='utf-8'><title>Jornada do TerritÃ³rio</title></head><body>";
+    "<head><meta charset='utf-8'><title>Jornada do Territ\u00f3rio</title></head><body>";
   const footer = "</body></html>";
 
   // Cordel 2.0 logo as base64 (you can replace this with the actual logo)
@@ -2282,32 +2282,32 @@ function saveToDoc(data) {
       <p><strong>Data:</strong> ${data.timestamp}</p>
       <p><strong>Lugar:</strong> ${data.place}</p>
       <hr>
-      <h2>PontuaÃ§Ã£o</h2>
+      <h2>Pontua\u00e7\u00e3o</h2>
       <ul>
-          <li>VivÃªncia: ${data.points_vivencia}</li>
-          <li>ImaginaÃ§Ã£o: ${data.points_imaginacao}</li>
-          <li>TerritÃ³rio: ${data.points_territorio}</li>
+          <li>Viv\u00eancia: ${data.points_vivencia}</li>
+          <li>Imagina\u00e7\u00e3o: ${data.points_imaginacao}</li>
+          <li>Territ\u00f3rio: ${data.points_territorio}</li>
           <li>Total no game: ${data.points_total}</li>
       </ul>
       <h2>Placar da Escrita</h2>
       <p>${data.writing_score_summary}</p>
       <p><strong>Referencias encontradas:</strong> ${(data.writing_scoreboard.totals.referencesFound || []).join(', ') || 'Nenhuma referencia detectada ainda'}</p>
       <hr>
-      <h2>ProduÃ§Ãµes Textuais</h2>
-      <h3>1. VivÃªncia</h3>
+      <h2>Produ\u00e7\u00f5es Textuais</h2>
+      <h3>1. Viv\u00eancia</h3>
       <p>${data.text_m1}</p>
       
       <h3>2. Imagem-Poema</h3>
       <p><strong>Imagem:</strong> ${data.text_m2_poem}</p>
       <p><strong>Verso:</strong> ${data.text_m2_verse}</p>
       
-      <h3>3. InscriÃ§Ã£o Territorial</h3>
+      <h3>3. Inscri\u00e7\u00e3o Territorial</h3>
       <p>${data.text_m3}</p>
       
       <h3>4. Encontro Fugaz</h3>
       <p>${data.text_lit_fugaz}</p>
       
-      <h3>5. Desafio TemÃ¡tico (${data.text_tematica_theme})</h3>
+      <h3>5. Desafio Tem\u00e1tico (${data.text_tematica_theme})</h3>
       <p>${data.text_tematica}</p>
       <hr>
       <h2>Mensagem Cordel 2.0</h2>
@@ -2331,11 +2331,11 @@ function saveToDoc(data) {
   document.body.removeChild(link);
 }
 
-// FunÃ§Ã£o de Registro e Download
+// Fun\u00e7\u00e3o de Registro e Download
 function downloadJourney() {
   const data = getGameData();
 
-  // 1. Baixa o arquivo DOC para o usuÃ¡rio
+  // 1. Baixa o arquivo DOC para o usu\u00e1rio
   saveToDoc(data);
 
   // 2. Envia para o Google Sheets (mantendo o registro)
@@ -2359,13 +2359,18 @@ function syncJourney() {
     })
     .catch(err => {
       console.error('Erro ao enviar para planilha:', err);
-      showDialog('NÃ£o foi possÃ­vel sincronizar agora. Verifique sua conexÃ£o e tente novamente.');
+      showDialog('N\u00e3o foi poss\u00edvel sincronizar agora. Verifique sua conex\u00e3o e tente novamente.');
     });
 }
 
-// FunÃ§Ã£o para envio automÃ¡tico para o Google Sheets
+// Fun\u00e7\u00e3o para envio autom\u00e1tico para o Google Sheets
 let appsScriptListenerReady = false;
 const pendingAppsScriptRequests = new Map();
+const APPS_SCRIPT_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycby3v0Iy6ubR33mXcyaDUtFHdHsEwUvDyw7t2k-PHCNoH2FTCxNHpsFAeWVwTn1XLZVE4Q/exec';
+const APPS_SCRIPT_ALLOWED_MESSAGE_ORIGINS = [
+  'https://script.google.com',
+  'https://script.googleusercontent.com'
+];
 
 function ensureAppsScriptMessageListener() {
   if (appsScriptListenerReady) return;
@@ -2376,6 +2381,7 @@ function ensureAppsScriptMessageListener() {
 
     const pending = pendingAppsScriptRequests.get(data.requestId);
     if (!pending) return;
+    if (!APPS_SCRIPT_ALLOWED_MESSAGE_ORIGINS.includes(event.origin)) return;
 
     pendingAppsScriptRequests.delete(data.requestId);
     if (pending.cleanup) pending.cleanup();
@@ -2392,10 +2398,10 @@ function ensureAppsScriptMessageListener() {
 }
 
 function requestAppsScriptViaIframe(payload) {
-  const scriptUrl = 'https://script.google.com/macros/s/AKfycbytlDy4ZZaKyTjT3vwgofwNcL79LeG5dkoBmTEy1M_ZyPbDK5c5LtrcoJcR2HHIzs7Beg/exec';
+  const scriptUrl = APPS_SCRIPT_WEB_APP_URL;
 
   if (!scriptUrl || scriptUrl === 'COLE_SUA_URL_DO_WEB_APP_AQUI') {
-    return Promise.reject(new Error('URL do Google Sheets nÃƒÂ£o configurada.'));
+    return Promise.reject(new Error('URL do Google Sheets n\u00e3o configurada.'));
   }
 
   ensureAppsScriptMessageListener();
@@ -2425,7 +2431,14 @@ function requestAppsScriptViaIframe(payload) {
     form.style.display = 'none';
 
     [
-      { name: 'payload', value: JSON.stringify(payload) },
+      {
+        name: 'payload',
+        value: JSON.stringify({
+          ...payload,
+          parentOrigin: window.location.origin,
+          appUrl: window.location.href
+        })
+      },
       { name: 'transport', value: 'iframe' },
       { name: 'requestId', value: requestId }
     ].forEach((entry) => {
@@ -2436,7 +2449,11 @@ function requestAppsScriptViaIframe(payload) {
       form.appendChild(input);
     });
 
-    pendingAppsScriptRequests.set(requestId, { resolve, reject, cleanup });
+    pendingAppsScriptRequests.set(requestId, {
+      resolve,
+      reject,
+      cleanup
+    });
     document.body.appendChild(iframe);
     document.body.appendChild(form);
     form.submit();
@@ -2487,7 +2504,7 @@ window.addEventListener('keydown', (e) => {
   }
 });
 
-// INICIALIZAÃ‡ÃƒO
+// INICIALIZA\u00c7\u00c3O
 let resizeTimeoutId = null;
 
 window.addEventListener('resize', () => {
@@ -2510,4 +2527,3 @@ window.onload = () => {
   updateHUD();
   navigateTo(getResumeScreen());
 };
-
