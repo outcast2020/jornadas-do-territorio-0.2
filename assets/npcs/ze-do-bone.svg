@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 180" role="img" aria-label="Retrato de Ze do Bone">
+  <rect width="160" height="180" fill="#ffe2c7"/>
+  <rect y="120" width="160" height="60" fill="#d95f18"/>
+  <circle cx="80" cy="70" r="30" fill="#7a4a31"/>
+  <circle cx="80" cy="79" r="28" fill="#b87853"/>
+  <path d="M34 48h92v16H34z" fill="#1f2b2a"/>
+  <path d="M52 36h58v18H52z" fill="#2f3d3b"/>
+  <circle cx="69" cy="80" r="4" fill="#1d120d"/>
+  <circle cx="92" cy="80" r="4" fill="#1d120d"/>
+  <path d="M66 95c7 6 21 6 28 0" fill="none" stroke="#6f3529" stroke-width="3" stroke-linecap="round"/>
+  <rect x="45" y="114" width="70" height="44" rx="18" fill="#ffd26f"/>
+  <text x="80" y="146" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#5a2e16">ZE</text>
+</svg>

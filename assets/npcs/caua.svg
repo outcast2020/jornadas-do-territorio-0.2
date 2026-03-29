@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 180" role="img" aria-label="Retrato de Caua">
+  <rect width="160" height="180" fill="#dce9ff"/>
+  <rect y="120" width="160" height="60" fill="#3559d5"/>
+  <circle cx="80" cy="66" r="34" fill="#2a2740"/>
+  <circle cx="80" cy="78" r="29" fill="#d7a27f"/>
+  <path d="M52 67c8-24 51-33 67-9-4-30-18-42-40-42-15 0-28 9-36 25l9 26z" fill="#1d1a31"/>
+  <circle cx="69" cy="80" r="4" fill="#20130e"/>
+  <circle cx="92" cy="80" r="4" fill="#20130e"/>
+  <path d="M68 93c8 5 16 5 24 0" fill="none" stroke="#8f4c35" stroke-width="3" stroke-linecap="round"/>
+  <rect x="46" y="113" width="68" height="44" rx="18" fill="#91f0d5"/>
+  <text x="80" y="146" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#16355b">LAB</text>
+</svg>

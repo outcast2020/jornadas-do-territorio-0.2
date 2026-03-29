@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 180" role="img" aria-label="Retrato da Bibliotecaria">
+  <rect width="160" height="180" fill="#dff2e8"/>
+  <rect y="120" width="160" height="60" fill="#2c7b57"/>
+  <circle cx="80" cy="66" r="34" fill="#4f3023"/>
+  <circle cx="80" cy="79" r="29" fill="#c58b68"/>
+  <path d="M46 58c10-24 55-31 67-8-1-27-18-40-39-40-15 0-29 8-37 23l9 25z" fill="#402518"/>
+  <circle cx="69" cy="80" r="4" fill="#22140d"/>
+  <circle cx="92" cy="80" r="4" fill="#22140d"/>
+  <path d="M67 94c8 6 18 6 26 0" fill="none" stroke="#814636" stroke-width="3" stroke-linecap="round"/>
+  <rect x="46" y="114" width="68" height="44" rx="18" fill="#fff2a8"/>
+  <text x="80" y="146" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#284732">ACERVO</text>
+</svg>

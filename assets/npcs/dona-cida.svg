@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 180" role="img" aria-label="Retrato de Dona Cida">
+  <rect width="160" height="180" fill="#f7d9d9"/>
+  <rect y="118" width="160" height="62" fill="#b84e54"/>
+  <circle cx="80" cy="64" r="34" fill="#7a4a30"/>
+  <circle cx="80" cy="76" r="30" fill="#c98663"/>
+  <path d="M52 62c8-26 48-35 67-9-3-23-21-37-43-37-19 0-31 11-37 28l13 18z" fill="#6d422d"/>
+  <circle cx="69" cy="78" r="4" fill="#2d1a12"/>
+  <circle cx="92" cy="78" r="4" fill="#2d1a12"/>
+  <path d="M70 94c6 7 15 7 21 0" fill="none" stroke="#7c3d31" stroke-width="3" stroke-linecap="round"/>
+  <rect x="47" y="111" width="66" height="43" rx="18" fill="#ffef8c"/>
+  <text x="80" y="147" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#5a2a1b">DONA</text>
+</svg>
