@@ -2367,10 +2367,23 @@ function syncJourney() {
 let appsScriptListenerReady = false;
 const pendingAppsScriptRequests = new Map();
 const APPS_SCRIPT_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycby3v0Iy6ubR33mXcyaDUtFHdHsEwUvDyw7t2k-PHCNoH2FTCxNHpsFAeWVwTn1XLZVE4Q/exec';
-const APPS_SCRIPT_ALLOWED_MESSAGE_ORIGINS = [
-  'https://script.google.com',
-  'https://script.googleusercontent.com'
+const APPS_SCRIPT_ALLOWED_MESSAGE_HOSTS = [
+  'script.google.com',
+  'script.googleusercontent.com'
 ];
+
+function isAllowedAppsScriptOrigin(origin) {
+  try {
+    const url = new URL(origin);
+    const host = url.hostname;
+    return APPS_SCRIPT_ALLOWED_MESSAGE_HOSTS.some((allowedHost) => {
+      if (host === allowedHost) return true;
+      return new RegExp(`(^|[.-])${allowedHost.replace(/\./g, '\\.')}$`).test(host);
+    });
+  } catch (error) {
+    return false;
+  }
+}
 
 function ensureAppsScriptMessageListener() {
   if (appsScriptListenerReady) return;
@@ -2381,7 +2394,7 @@ function ensureAppsScriptMessageListener() {
 
     const pending = pendingAppsScriptRequests.get(data.requestId);
     if (!pending) return;
-    if (!APPS_SCRIPT_ALLOWED_MESSAGE_ORIGINS.includes(event.origin)) return;
+    if (!isAllowedAppsScriptOrigin(event.origin)) return;
 
     pendingAppsScriptRequests.delete(data.requestId);
     if (pending.cleanup) pending.cleanup();
